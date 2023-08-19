@@ -10,7 +10,7 @@ By finishing this session, you should be able to
 
 ## Githbub Page
 
-- [https://toupdate](https://toupdate)
+- [https://github.com/scie1006-2023/comp/blob/main/workshop2.md](https://github.com/scie1006-2023/comp/blob/main/workshop2.md)
 
 ## Part 1: Getting Started
 
