@@ -8,7 +8,7 @@ By finishing this session, you should be able to
 - Store sensor data to MongoDB Atlas database
 - Visualze sensor data with MongoDB charts
 
-## Githbub Page
+## Github Page
 
 - [https://github.com/scie1006-2023/comp/blob/main/workshop2.md](https://github.com/scie1006-2023/comp/blob/main/workshop2.md)
 

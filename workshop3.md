@@ -8,7 +8,7 @@ By finishing this session, you should be able to
 - Play speech output to report sensor reading with `pyttsx3` library
 - Control the LED that is attached to the single-board computer with General Purpose Input/Output (GPIO) pins using `python-periphery` library.
 
-## Githbub Page
+## Github Page
 
 - [https://github.com/scie1006-2023/comp/blob/main/workshop3.md](https://github.com/scie1006-2023/comp/blob/main/workshop3.md)
 
