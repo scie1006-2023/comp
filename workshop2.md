@@ -367,9 +367,10 @@ You have to submit the follwing items to the Moodle submission boxes.
 - MongoDB Atlas Dashboard Link (with two charts)
 
 ## Discussion
-Question: What kinds of statistics or visualizations can we make after we 
+Question: What kinds of statistics or visualisations are possible after collecting the sensor data? 
 - Answer the discussion questoin in the Moolde submission box.
 
+<div style="page-break-after: always;"></div>
 ## References
 
 - Embed charts and dashboards — MongoDB charts. (n.d.). MongoDB: The Developer Data Platform | MongoDB. https://www.mongodb.com/docs/charts/embed-charts-and-dashboards/
