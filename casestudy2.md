@@ -235,7 +235,7 @@ The above code will change the background color to red if the temperature is hig
 
 ## Discussion
 Discussion Question: What more applications can we create for a smart city besides alert systems?
-- Answer the discussion questoin in the Moolde submission box.
+- Answer the discussion question in the Moodle submission box.
 
 ## References
 
