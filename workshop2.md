@@ -371,6 +371,7 @@ Question: What kinds of statistics or visualisations are possible after collecti
 - Answer the discussion questoin in the Moolde submission box.
 
 <div style="page-break-after: always;"></div>
+
 ## References
 
 - Embed charts and dashboards — MongoDB charts. (n.d.). MongoDB: The Developer Data Platform | MongoDB. https://www.mongodb.com/docs/charts/embed-charts-and-dashboards/
