@@ -368,7 +368,7 @@ You have to submit the follwing items to the Moodle submission boxes.
 
 ## Discussion
 Question: What kinds of statistics or visualisations are possible after collecting the sensor data? 
-- Answer the discussion questoin in the Moolde submission box.
+- Answer the discussion question in the Moodle submission box.
 
 <div style="page-break-after: always;"></div>
 
