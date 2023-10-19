@@ -365,10 +365,7 @@ You have to submit the follwing items to the Moodle submission boxes.
 - MongoDB connection string (the uri)
 -  **`sensor.py`**
 - MongoDB Atlas Dashboard Link (with two charts)
-
-## Discussion
-Question: What kinds of statistics or visualisations are possible after collecting the sensor data? 
-- Answer the discussion question in the Moodle submission box.
+- Discussion Question: What kinds of statistics or visualisations are possible after collecting the sensor data? 
 
 <div style="page-break-after: always;"></div>
 
