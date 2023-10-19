@@ -137,32 +137,22 @@ By finishing this session, you should be able to
 
       In the above code, we send `0xAC` command with payload `[0x33, 0x00]` to address `0x38`. The `0xAC` command with payload `[0x33, 0x00]` will trigger the sensor to do measurement. Then, we wait for 0.5 seconds and read the data from the sensor. The data is read from address `0x38` with command `0x00` and blcok length equals to `8`. We then store result data in the data variable.
 
-   2. According to the hardware data sheet, we have to extract the temperature data from the data variable by the following code:
+   2. According to the hardware data sheet, we have to extract the temperature and humidity signals from the data variable by the following code:
 
       ```python
       temp = ((data[3] & 0x0F) << 16) | (data[4] << 8) | data[5]
-      ```
-
-      The above code uses `bitwise` operations (`Shift`, `AND` and `OR`) to extract the temperature data from the data variable. The temperature data is stored in the `temp` variable.
-
-      And, we could extract the humidity data by the following code:
-
-      ```python
       humi = ((data[1] << 16) | (data[2] << 8) | data[3]) >> 4
       ```
 
-   3. The formula to calculate the temperature from the `temp` data is as follows:
+      The above code uses `bitwise` operations (`Shift`, `AND` and `OR`) to extract the signals from the data variable. The temperature signal is stored in the `temp` variable and the humidity signal is stored in the `humi` variable.
+      
+   3. The formula to calculate the temperature from the `temp` signal is as follows:
       $$Temperature = (\frac{temp}{2^{20}}) \times 200 - 50$$
 
-      We could calculate the temperature value in celcius degree by using the following code:
+      We could calculate the temperature value in celcius degree and print it out by using the following code:
 
       ```pthon
       temperature = temp / (2**20) * 200 - 50
-      ```
-
-      And, we could print it out using the following code:
-
-      ```pthon
       print(u'Temperature: {0:.1f}°C'.format(temperature))
       ```
 
@@ -171,7 +161,7 @@ By finishing this session, you should be able to
       ![Sample output](images/sample-output-temp.png)
       
    4. **Exercise: Calculate and print the humidity**
-      The formula to calculate the humidity (in percentage) from the `humi` data is as follows:
+      The formula to calculate the humidity (in percentage) from the `humi` signal is as follows:
    
       $$Humidity = (\frac{humi}{2^{20}}) \times 100$$
 
