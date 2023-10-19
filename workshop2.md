@@ -243,7 +243,7 @@ By finishing this session, you should be able to
       db = client.database      
       ```
       
-   5. To store data in the MongoDB database, we have to create a record from the sensor data and insert it to the database.
+   5. To store data in the MongoDB database, we have to create a record from the sensor data and insert it to the database. Add the following code at the end of the program.
 
       ```python      
       # Create a record variable to store the sensor data
@@ -258,7 +258,7 @@ By finishing this session, you should be able to
       db.sensors.insert_one(record)
       ```
 
-   6. Now that we have learned how to read sensor data, and store sensor data in a MongoDB database. To continuously read the temperature and humidity data from the sensor and save it in the MongoDB database, we could put everything into an infinite loop.
+   6. Now that we have learned how to read sensor data, and store sensor data in a MongoDB database. To continuously read the temperature and humidity data from the sensor and save it in the MongoDB database, we could put everything into an infinite loop as follows.
 
       ```python
       from smbus2 import SMBus
