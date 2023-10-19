@@ -70,7 +70,7 @@ By finishing this session, you should be able to
 
    ```python
    number = 123   # int (whole number)
-   pi = 3.1415    # float (with decimal pont)
+   pi = 3.1415    # float (with decimal points)
    message = "Welcome aboard!"  # string (text)
    ```
 
@@ -107,6 +107,10 @@ By finishing this session, you should be able to
    print(temperature)  # 25.28
    print( u'{0}°C'.format(temperature))     # 25.28°C
    print( u'{0:.1f}°C'.format(temperature)) # 25.3°C (1 d.p.)
+
+   humidity = 55.82
+   print(humidity) # 55.82
+   print(u'Humidity: {0:.1f}%'.format(humidity)) # 55.8%
    ```
 
 ## Part 3: Reading Values from Sensors
