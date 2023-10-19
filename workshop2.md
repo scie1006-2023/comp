@@ -177,6 +177,12 @@ By finishing this session, you should be able to
 
       In your program, add Python code to calculate and print the humidity value (in percentage) using the above formula.
 
+      ```python
+      # Exercise code: Read and print the humidity data from the sensor
+      humidity = ...
+      print(...)
+      ```
+
       *Sample output:*
       
       ![Sample output](images/sample-output-both.png)
