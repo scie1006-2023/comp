@@ -230,7 +230,7 @@ By finishing this session, you should be able to
    3. Select "Python" as the driver and "3.6 or later" as the version. Then, click on "Copy" to copy the URI to your clipboard. You will need to paste this URI into your Python code.
 
       ![](images/db3.jpg)
-   4. To connect to the MongoDB database, we need to use the `pymongo` libaray with the following code.
+   4. To connect to the MongoDB database, we need to use the `pymongo` libaray with the following code. Add the following code below the `import time` statement at the top of the program.
 
       ```python
       from pymongo import MongoClient
