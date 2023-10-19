@@ -355,8 +355,9 @@ By finishing this session, you should be able to
 
       ![](images/mongodb-charts-min.png)
    
-   9. **Exercise: Create a chart for humidity data**
-      Please create a chart for humidity using the same steps as above.
+   9. **Exercise: Create a chart for the humidity data**
+
+      Please create a chart for the humidity using the same steps as above.
 
 ## Submission
 
