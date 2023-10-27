@@ -9,7 +9,7 @@ By finishing this session, you should be able to
 
 ## Github Page
 
-- [https://github.com/scie1006-2023/comp/blob/main/casestudy2-programming.md](https://github.com/scie1006-2023/comp/blob/main/casestudy2.md)
+- [https://github.com/scie1006-2023/comp/blob/main/casestudy2-programming.md](https://github.com/scie1006-2023/comp/blob/main/casestudy2-programming.md)
 
 ## Part 1: Getting Started
 
