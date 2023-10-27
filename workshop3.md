@@ -5,7 +5,7 @@
 By finishing this session, you should be able to
 
 - Play speech output to report sensor reading with `pyttsx3` library
-- Control the LED that is attached to the single-board computer with General Purpose Input/Output (GPIO) pins using `python-periphery` library.
+- Control the LED that is attached to the single-board computer with General Purpose Input/Output (GPIO) pins using the `python-periphery` library.
 
 ## Github Page
 
@@ -24,7 +24,7 @@ By finishing this session, you should be able to
 
    ![Alt text](images/wifi-new2.png)
 
-   iii.  Click the Connect button on BU-Standard again, and input your password to connect to the netwrok.
+   iii.  Click the Connect button on BU-Standard again and input your password to connect to the network.
 
    ![Alt text](images/wifi4.png)
 3. Right-click the desktop and select Create New, followed by Folder.
@@ -35,7 +35,7 @@ By finishing this session, you should be able to
    ![Alt text](images/createFolder2.png)
 
    <div style="page-break-after: always;"></div>
-5. Launch Visual Studio Code by clicking the icon in the task bar.
+5. Launch Visual Studio Code by clicking the icon in the taskbar.
 
    ![Alt text](images/vs-icon.png)
 6. Choose Open Folder from the File menu.
@@ -44,11 +44,11 @@ By finishing this session, you should be able to
 7. After finding the MyProject folder on Desktop, click Open.
 
    ![Alt text](images/vs-openfolder2.png)
-8. In the Explorer, click the New File... button to create a file called **`conditions.py`**.
+8. In Explorer, click the New File... button to create a file called **`conditions.py`**.
 
    ![Alt text](images/vs-newfile.png)
 
-## Part 2: Python Conditions and If statements
+## Part 2: Python Conditions and If Statements
 
 If Statement is applied during the decision-making process.  It has a body of code that only executes when the if statement's condition is met. The optional else statement, which includes some code for the else condition, runs if the condition is false.
 
@@ -144,12 +144,12 @@ If Statement is applied during the decision-making process.  It has a body of co
         # wait for 60 seconds
         time.sleep(60) 
    ```
-2. To play speech outpout, we need to import the `pyttsx3` libaray.
+2. To play speech output, we need to import the `pyttsx3` library. Let's import the library at the top of the program.
 
    ```python
    import pyttsx3
    ```
-3. Then, use the following program code to produce speech.
+3. Then, use the following program code to produce speech. Please add the following code **before** the `while` loop.
 
    ```python
    engine = pyttsx3.init()
@@ -157,19 +157,26 @@ If Statement is applied during the decision-making process.  It has a body of co
    engine.runAndWait()
    ```
 
-   Please add the above code **before** the `while` loop.
-
    <div style="page-break-after: always;"></div>
-4. To output the temperature value with speech, add the following code to the program right **after** the print statement of the temperature value, which is `print(u'Temperature: {0:.1f}°C'.format(temperature))`.
+4. To output the temperature value with speech, add the following code to the program right **after the print statement of the temperature value**, which is `print(u'Temperature: {0:.1f}°C'.format(temperature))`.
 
    ```python
    engine = pyttsx3.init()
    engine.say(u'Temperature is now {0:.1f}°'.format(temperature))
    engine.runAndWait()
    ```
-5. **Exercise: Output humidity value with speech**
+5. **Exercise: Output humidity value with speech
 
-   Write code in the program to speak the humidity value out loud.
+   Write code in the program to speak the humidity value out loud. It should say "Humidity is now XX%". You should put the code right **after the print statement of the humidity value**, which is `print(u'Humidity: {0:.1f}%'.format{humidity}) `.
+
+   ```python
+   # Exercise: Output humidity value with speech
+   # Fill out the ... below
+   engine = pyttsx3.init()
+   engine.say(....)
+   engine.runAndWait()
+   ```
+
 
 ## Part 4: LED Alert System
 
@@ -181,7 +188,7 @@ General Purpose Input/Output (GPIO) pins are pins that can be used for input or 
 
 The LED is connected to the GPIO pin `146` for the Red channel and `150` for the Green channel.
 
-1. Let's import the GPIO from the periphery library.
+1. Let's import the GPIO from the periphery library at the top of the program.
 
    ```python
    from periphery import GPIO
@@ -200,10 +207,24 @@ The LED is connected to the GPIO pin `146` for the Red channel and `150` for the
    ```
 3. **Exercise: Turning on and off the Green LED**
 
-   Write code in the program to turn on the Green LED for 3 seconds and then turn if off **beofre** the `while` loop.
+   Write code in the program to turn on the Green LED for 3 seconds and then turn it off **before** the `while` loop.
+
+   ```python
+   # Exercise: Turning on and off the Green LED
+   # Fill out the ... below
+   
+   # set GPIO pin 150 as an output pin
+   green_led = GPIO(..., "out")
+   # turn on the green LED
+   green_led.write(...)
+   # wait for 3 seconds
+   time.sleep(...)
+   # turn off the green LED
+   green_led.write(...)
+   ```
 
    <div style="page-break-after: always;"></div>
-4. Now, we have learnt how to turn on and off the LEDs. Let's detect whether the temperature is too high in the program. Add the follwing code to the program right **before** the `time.sleep(60)` statement in the `while` loop.
+5. Now, we have learned how to turn on and off the LEDs. Let's detect whether the temperature is too high in the program. Add the following code to the program right **before** the `time.sleep(60)` statement in the `while` loop. Mind the spacing.
 
    ```python
    if temperature > 28:
@@ -216,18 +237,19 @@ The LED is connected to the GPIO pin `146` for the Red channel and `150` for the
        red_led.write(False)
    ```
 
-   When the temperature is too high, this code turns on the red LED, and when the temperature is normal, it turns it off.
+   When the temperature is too high, this code turns on the red LED, and when the temperature is normal, it turns the LED off.
 
-## Submission and Demo
-
+## Demo
 - You have to **demonstrate** your work to the instructor(s) before the end of the class.
-- You have to submit the updated **`sensor.py`** to the Moodle submission box.
 
 ## Discussion
-
 Question: How can sensors be used to build living aid devices? Justify your answer.
-
 - Answer the discussion question in the Moodle submission box.
+
+## Submission
+You have to submit the following items to the Moodle submission box:
+- The updated **`sensor.py`**
+- Discussion Question
 
 ## References
 

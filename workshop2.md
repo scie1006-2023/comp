@@ -5,8 +5,8 @@
 By finishing this session, you should be able to
 
 - Read values from sensors
-- Store sensor data to MongoDB Atlas database
-- Visualze sensor data with MongoDB charts
+- Store sensor data in the MongoDB Atlas database
+- Visualize sensor data with MongoDB charts
 
 ## Github Page
 
@@ -15,8 +15,10 @@ By finishing this session, you should be able to
 ## Part 1: Getting Started
 
 1. Power on the ROCK PI device and log in using the provided username and password.
+
 2. Connect to the BU-Standard WIFI network.
-   i.  Click the Networks icon on the task bar, and then right-click the Connect button on BU-Standard and choose Configure...
+
+   i.  Click the Networks icon on the taskbar, and then **right-click** the Connect button on BU-Standard and choose Configure...
 
    ![Alt text](images/wifi1.png)
    <div style="page-break-after: always;"></div>
@@ -24,32 +26,32 @@ By finishing this session, you should be able to
 
    ![Alt text](images/wifi-new2.png)
 
-   iii.  Click the Connect button on BU-Standard again, and input your password to connect to the netwrok.
+   iii.  Click the Connect button on BU-Standard again and input your password to connect to the network.
 
    ![Alt text](images/wifi4.png)
 
    
-3. Right-click the desktop and select Create New, followed by Folder.
+4. Right-click the desktop and select Create New, followed by Folder.
 
    ![Alt text](images/createFolder1.png)
-4. Enter "MyProject" as the folder name, then click OK.
+5. Enter "MyProject" as the folder name, then click OK.
 
    ![Alt text](images/createFolder2.png)
 
    <div style="page-break-after: always;"></div>
-5. Launch Visual Studio Code by clicking the icon in the task bar.
+6. Launch Visual Studio Code by clicking the icon in the taskbar.
 
    ![Alt text](images/vs-icon.png)
-6. Choose Open Folder from the File menu.
+7. Choose Open Folder from the File menu.
 
    ![Alt text](images/vs-openfolder.png)
-7. After finding the MyProject folder on Desktop, click Open.
+8. After finding the MyProject folder on Desktop, click Open.
 
    ![Alt text](images/vs-openfolder2.png)
-8. In the Explorer, click the New File... button to create a file called **`basics.py`**.
+9. In Explorer, click the New File... button to create a file called **`basics.py`**.
 
    ![Alt text](images/vs-newfile.png)
-9. Copy and paste the code below into **`basics.py`**. You can press`Ctrl+V` to paste the copied code.
+10. Copy and paste the code below into **`basics.py`**. You can press `Ctrl+V` to paste the copied code.
 
     ```python
     import datetime
@@ -57,13 +59,17 @@ By finishing this session, you should be able to
     ```
 <div style="page-break-after: always;"></div>
 
-10. Choose Save from the File menu or press Ctrl+S to save the file.
+10. Choose Save from the File menu or press `Ctrl+S` to save the file.
 
     ![Alt text](images/vs-save.png)
 11. Click the run button at the upper right to execute the program. The result will be shown in the terminal.
 
     ![Alt text](images/vs-run.png)
 
+12. Sample output:
+    
+    ![Alt text](images/vs-sample-output.png)
+    
 ## Part 2: Python Basics
 
 1. Variables and Data Types
@@ -74,9 +80,9 @@ By finishing this session, you should be able to
    message = "Welcome aboard!"  # string (text)
    ```
 
-   A python variable is created as soon as a value is assigned to it. There are a certain rules that we have to keep in mind while creating a variable:
+   A python variable is created as soon as a value is assigned to it. There are certain rules that we have to keep in mind while creating a variable:
    - The variable name cannot start with a number. It can only start with a character or an underscore.
-   - Variables in python are case sensitive.
+   - Variables in python are case-sensitive.
    - They can only contain alpha-numeric characters and underscores. No special characters are allowed.
   
 2. Basic Arithmetic Operators
@@ -106,7 +112,7 @@ By finishing this session, you should be able to
    temperature = 25.28
    print(temperature)  # 25.28
    print( u'{0}°C'.format(temperature))     # 25.28°C
-   print( u'{0:.1f}°C'.format(temperature)) # 25.3°C (1 d.p.)
+   print( u'{0:.1f}°C'.format(temperature)) # 25.3°C
 
    humidity = 55.82
    print(humidity) # 55.82
@@ -115,10 +121,11 @@ By finishing this session, you should be able to
 
 ## Part 3: Reading Values from Sensors
 
-   The Rock Pi device's I2C bus number `7` is already wired to an AHT-10 humidity and temperature sensor. The I2C address of the sensor is `0x38`. To read data from the I2C bus, we have to use the    `smbus2` library and follow the instructions in the [hardware data sheet](https://www.aosong.com/userfiles/files/media/Data%20Sheet%20AHT20.pdf).
+   The Rock Pi device's I2C bus number `7` is already wired to an AHT-20 humidity and temperature sensor. The I2C address of the sensor is `0x38`. To read data from the I2C bus, we have to use the    `smbus2` library and follow the instructions in the [hardware data sheet](images/DataSheet-AHT20.pdf).
+   
+   ![](images/aht20.jpg)
 
-   ![image source: https://www.espruino.com/refimages/AHT10.jpg](images/AHT10.jpg)
-
+   
    1. Create a file called **`sensor.py`** and put the following code into the file.
 
       ```python
@@ -135,53 +142,53 @@ By finishing this session, you should be able to
       data = bus.read_i2c_block_data(0x38, 0x00, 8)
       ```
 
-      In the above code, we send `0xAC` command with payload `[0x33, 0x00]` to address `0x38`. The `0xAC` command with payload `[0x33, 0x00]` will trigger the sensor to do measurement. Then, we wait for 0.5 seconds and read the data from the sensor. The data is read from address `0x38` with command `0x00` and blcok length equals to `8`. We then store result data in the data variable.
+      In the above code, we send the `0xAC` command with payload `[0x33, 0x00]` to address `0x38`. The `0xAC` command with payload `[0x33, 0x00]` will trigger the sensor to do the measurement. Then, we wait for 0.5 seconds and read the data from the sensor. The data is read from address `0x38` with command `0x00` and block length equals to `8`. We then store the result data in the data variable.
 
-   2. According to the hardware data sheet, we have to extract the temperature and humidity signals from the data variable by the following code:
+   2. According to the hardware datasheet, we have to extract the temperature and humidity signals from the data variable using the following code:
 
       ```python
       temp = ((data[3] & 0x0F) << 16) | (data[4] << 8) | data[5]
       humi = ((data[1] << 16) | (data[2] << 8) | data[3]) >> 4
       ```
 
-      The above code uses `bitwise` operations (`Shift`, `AND` and `OR`) to extract the signals from the data variable. The temperature signal is stored in the `temp` variable and the humidity signal is stored in the `humi` variable.
+      The above code uses `bitwise` operations (`Shift`, `AND` and `OR`) to extract the signals from the data variable. The temperature signal is stored in the `temp` variable, and the humidity signal is stored in the `humi` variable.
       
    3. The formula to calculate the temperature from the `temp` signal is as follows:
       $$Temperature = (\frac{temp}{2^{20}}) \times 200 - 50$$
 
-      We could calculate the temperature value in celcius degree and print it out by using the following code:
+      We could calculate the temperature value in Celsius degrees and print it out by using the following code:
 
-      ```pthon
+      ```python
       temperature = temp / (2**20) * 200 - 50
       print(u'Temperature: {0:.1f}°C'.format(temperature))
       ```
-
+      
       *Sample output:*
 
-      ![Sample output](images/sample-output-temp.png)
-      
-   4. **Exercise: Calculate and print the humidity**
+   ![Sample output](images/sample-output-temp.png)
+         
+            
+   5. **Exercise: Calculate and print the humidity**
       The formula to calculate the humidity (in percentage) from the `humi` signal is as follows:
    
       $$Humidity = (\frac{humi}{2^{20}}) \times 100$$
 
-      In your program, add Python code to calculate and print the humidity value (in percentage) using the above formula.
+      Add Python code to calculate and print the humidity value (in percentage) in your program using the above formula.
 
       ```python
       # Exercise code: Read and print the humidity data from the sensor
+      # Fill out the ... below
       humidity = ...
       print(...)
       ```
 
       *Sample output:*
       
-      ![Sample output](images/sample-output-both.png)
+   ![Sample output](images/sample-output-both.png)
 
-## Part 4: Storing Sensor data to MongoDB Atlas database
+## Part 4: Sign up for a MongoDB Atlas account
 
-   In this section, we will use a cloud database MongoDB Atlas to store the sensor data.
-
-#### A. Sign up for a MongoDB Atlas account
+   We will use a cloud database, MongoDB Atlas, to store the sensor data.
 
    1. To sign up for a MongoDB Atlas account, go to the following URL:
 
@@ -190,11 +197,11 @@ By finishing this session, you should be able to
       ![](images/sign-up-mongodb-atlas.png)
 
       <div style="page-break-after: always;"></div>
-   2. You will need to fill-up a questionnaire for the first time setup. You could fill-up the questionnaire as follows:
+   2. You will need to fill out a questionnaire for the first time. You could fill out the questionnaire as follows:
 
       ![](images/mongodb-atlas-questionnaire.png)
 
-   3. After that, you will need to create a MongoDB cluster. A cluster is a group of servers that store your data. Then, select the "M0" option. Then, select the "AWS" option. In the "Region" dropdown list, select "Hong Kong". Give it a name as your like and click on the "Create" button.
+   3. After that, you will need to create a MongoDB cluster. A cluster is a group of servers that store your data. Then, select the "M0" option. Then, select the "AWS" option. In the "Region" dropdown list, select "Hong Kong". Give it a name as you like and click on the "Create" button.
 
       ![](images/mongodb-tier-select.png)
 
@@ -202,48 +209,51 @@ By finishing this session, you should be able to
 
       ![](images/mongodb-username-password.png)
 
-   5. Click on the "Network Access" tab, choose "Cloud Environment" and then click on the "Add IP Address" button. Then, click on the "Allow Access from Anywhere" button. Please add a entry for `0.0.0.0/0` as follows:
+   5. Choose "Cloud Environment" and enter `0.0.0.0/0` in the IP Address, and then click "Add Entry" as follows:
    
       ![](images/mongodb-ip-access.png)
 
       
    6. To complete, click the "Finish and Close" button in the bottom right corner.
+
+      ![](images/mongodb-finish-close.png)
+      
       <div style="page-break-after: always;"></div>
-   7. Click on "Go to Dashboard" button in the following screen.
+   8. Click on "Go to Overview" button on the following screen.
       
       ![](images/mongodb-congratulations.png)
 
-#### B. Store sensor data in MongoDB database
-
-   In order to connect to your MongoDB database, you will need to generate a MongoDB URI, use the URI to connect to the databse, and then send data into the database.
-
-   1. After logged-in to your MongoDB Atlas account, click on the "Connect" button for your cluster.
+   9. Click on the "Connect" button for your cluster.
 
       ![](images/db.png)
-
-      Please replace `<password>` with the password you created for your database user.
+     
       <div style="page-break-after: always;"></div>
-   2. Then, click on "Driver". 
+   9. Then, click on "Drivers". 
    
-      ![](images/db2.jpg)
+      ![](images/db2.png)
 
-   3. Select "Python" as the driver and "3.6 or later" as the version. Then, click on "Copy" to copy the URI to your clipboard. You will need to paste this URI into your Python code.
+   9. Select "Python" as the driver and "3.6 or later" as the version. Then, click on the copy button to copy the URI to your clipboard.
 
-      ![](images/db3.jpg)
-   4. To connect to the MongoDB database, we need to use the `pymongo` libaray with the following code. Add the following code below the `import time` statement at the top of the program.
+      ![](images/db3.png)
+
+   9. Paste the URI into the Moodle submission box. Don't forget to replace `<password>` with the password you created for your database user.  You will need to use this URI to connect to the database in your python code. 
+
+## Part 5: Storing sensor data in MongoDB database     
+
+   1. To connect to the MongoDB database, we need to use the `pymongo` library with the following code. Add the following code below the `import time` statement at the top of the program.
 
       ```python
       from pymongo import MongoClient
       import datetime
 
-      # Your URI copied from MongoDB Atlas website
+      # Your URI copied from the MongoDB Atlas website
       # Replace <password> with the password you created for your database user
       uri = 'mongodb+srv://db:<password>@cluster0...:27017/'
       client = MongoClient(uri)
       db = client.database      
       ```
       
-   5. To store data in the MongoDB database, we have to create a record from the sensor data and insert it to the database. Add the following code at the end of the program.
+   2. To store data in the MongoDB database, we have to create a record from the sensor data and insert it into the database. Add the following code at the end of the program.
 
       ```python      
       # Create a record variable to store the sensor data
@@ -258,7 +268,7 @@ By finishing this session, you should be able to
       db.sensors.insert_one(record)
       ```
 
-   6. Now that we have learned how to read sensor data, and store sensor data in a MongoDB database. To continuously read the temperature and humidity data from the sensor and save it in the MongoDB database, we could put everything into an infinite loop as follows.
+   3. Now that we have learned how to read sensor data, and store sensor data in a MongoDB database. To continuously read the temperature and humidity data from the sensor and save it in the MongoDB database, we could put everything into an infinite loop as follows.
 
       ```python
       from smbus2 import SMBus
@@ -266,7 +276,7 @@ By finishing this session, you should be able to
       from pymongo import MongoClient
       import datetime
       
-      # Your URI copied from MongoDB Atlas website
+      # Your URI copied from the MongoDB Atlas website
       # Replace <password> with the password you created for your database user
       uri = 'mongodb+srv://db:<password>@cluster0...:27017/'
       client = MongoClient(uri)
@@ -274,7 +284,7 @@ By finishing this session, you should be able to
 
       bus = SMBus(7)
     
-      # The code block inside while True loop repeats continuously until 
+      # The code block inside the while True loop repeats continuously until 
       # you press Ctrl+C in the terminal
       while True:
          # trigger the sensor to do measurement
@@ -311,16 +321,20 @@ By finishing this session, you should be able to
 
       If you would like to stop the program, you may press `Ctrl + C` in the terminal.
 
-## Part 5: Visualizing sensor data with MongoDB Charts
+      *Sample output:*
+
+      ![Sample Output](images/sensor-sample-output.png)
+
+## Part 6: Visualizing sensor data with MongoDB s
 
    After we stored the sensor data in the MongoDB database, we could visualize the sensor data with MongoDB Charts. MongoDB Charts is a tool for creating visualizations of data stored in the MongoDB database. It allows us to create charts, graphs, tables, and other visualizations of the sensor data stored in the MongoDB database.
 
-   1. To create a MongoDB Charts project,you may go to Database Dashboard and click on the "Charts" button.
+   1. To create a MongoDB Charts project, you may go to the Database Dashboard and click on the "Charts" button.
 
       ![](images/mongodb-charts.png)
 
       <div style="page-break-after: always;"></div>
-   2. Then, click on the "Start" button in the welcome page.
+   2. Then, click on the "Start" button on the welcome page.
 
       ![](images/mongodb-charts-welcome.png)
 
@@ -328,7 +342,7 @@ By finishing this session, you should be able to
 
       ![](images/mongodb-charts-select.png)
       
-   4. You will need to select your database and collection as data source for the chart. Please select the `database` database and the `sensors` collection as data source for the chart.
+   4. You will need to select your database and then the collection as the data source for the chart. Please select the `database` and then `sensors` collection as the data source for the chart.
 
       ![](images/mongodb-charts-source.png)
       <div style="page-break-after: always;"></div>
@@ -340,34 +354,66 @@ By finishing this session, you should be able to
 
       ![](images/mongodb-charts-axis.png)
       <div style="page-break-after: always;"></div>
-   7. As we want to see the recent temperature changing on the chart at real-time, we will need to set the "Time Range" to "Previous 1 day" or "Previous 1 hour". And the time zone should be set to "UTC+8".
+   7. As we want to see the recent temperature change on the chart in real-time, we will need to set the "Filter" for the "date" field to "Previous 1 day" or "Previous 1 hour". 
 
       ![](images/mongodb-charts-filter.png)
 
-   8. After that, you may click on the "Save and close" button at the top right corner of the editor.
+   8. Click on "Enter a title" and type "Temperature" as the title.
+
+      ![](images/mongodb-charts-temp.png)
+      
+   9. Click on the "Save and close" button at the top right corner to save the chart.
 
       ![](images/mongodb-charts-save.png)
       <div style="page-break-after: always;"></div>
-   9. Outside the editor, we can see a refresh button, click on it, select the refresh settings.
+   9. In the dashboard, we can see a refresh button, click on it, and select the refresh settings.
    
       ![](images/mongodb-charts-refresh.png)
-   9. We can change the refresh interval to 1 minute. Then, click on the Save button.
+   9. Change the refresh interval to 1 minute. Then, click on the Save button.
 
       ![](images/mongodb-charts-min.png)
    
    9. **Exercise: Create a chart for the humidity data**
 
-      Please create a chart for the humidity using the same steps as above.
+      Click the "Add Chart" button at the top right to create a chart for the humidity using the same steps as above.
+
+      ![](images/mongodb-charts-add.png)
+
+      *Sample output:*
+
+      ![](images/mongodb-charts-sample.png)
+
+   9. Click the "Share" button to share the dashboard.
+
+      ![](images/mongodb-dashboard-share.png)
+
+   9. Choose the "Public" tab, and allow everyone with the link to view this dashboard. Then, click the "Manage" button.
+
+      ![](images/mongodb-dashboard-public.png)
+      
+   9. Under Data Access, allow unauthenticated data access for the sensors, and then click Save.
+
+      ![](images/mongodb-dashboard-data.png)
+
+   9. Copy the Dashboard link and paste it into the Moodle submission box.
+
+      ![](images/mongodb-dashboard-copy.png)
+
+      
+
+## Discussion
+Question: What kinds of statistics or visualizations are possible after collecting the sensor data?
+- Answer the discussion question in the Moodle submission box.
 
 ## Submission
 
-You have to submit the follwing items to the Moodle submission boxes.
+You have to submit the following items to the Moodle submission box:
 
-- MongoDB connection string (the uri)
 -  **`sensor.py`**
+- MongoDB connection string (the URI with password)
 - MongoDB Atlas Dashboard Link (with two charts)
-- Discussion Question: What kinds of statistics or visualisations are possible after collecting the sensor data? 
-
+- Discussion Question
+  
 <div style="page-break-after: always;"></div>
 
 ## References
