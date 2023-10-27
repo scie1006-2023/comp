@@ -325,7 +325,7 @@ By finishing this session, you should be able to
 
       ![Sample Output](images/sensor-sample-output.png)
 
-## Part 6: Visualizing sensor data with MongoDB s
+## Part 6: Visualizing sensor data with MongoDB
 
    After we stored the sensor data in the MongoDB database, we could visualize the sensor data with MongoDB Charts. MongoDB Charts is a tool for creating visualizations of data stored in the MongoDB database. It allows us to create charts, graphs, tables, and other visualizations of the sensor data stored in the MongoDB database.
 
