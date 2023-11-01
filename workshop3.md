@@ -15,7 +15,8 @@ By finishing this session, you should be able to
 
 1. Power on the ROCK PI device and log in using the provided username and password.
 2. Connect to the WIFI network.
-   i.  Click the Networks icon on the task bar, and then click the Connect button on BU-Standard.
+   
+   i.  Click the Networks icon on the taskbar, and then **right-click** the Connect button on BU-Standard and choose Configure...
 
    ![Alt text](images/wifi1.png)
 
@@ -27,24 +28,24 @@ By finishing this session, you should be able to
    iii.  Click the Connect button on BU-Standard again and input your password to connect to the network.
 
    ![Alt text](images/wifi4.png)
-3. Right-click the desktop and select Create New, followed by Folder.
+4. Right-click the desktop and select Create New, followed by Folder.
 
    ![Alt text](images/createFolder1.png)
-4. Enter "MyProject" as the folder name, then click OK.
+5. Enter "MyProject" as the folder name, then click OK.
 
    ![Alt text](images/createFolder2.png)
 
    <div style="page-break-after: always;"></div>
-5. Launch Visual Studio Code by clicking the icon in the taskbar.
+6. Launch Visual Studio Code by clicking the icon in the taskbar.
 
    ![Alt text](images/vs-icon.png)
-6. Choose Open Folder from the File menu.
+7. Choose Open Folder from the File menu.
 
    ![Alt text](images/vs-openfolder.png)
-7. After finding the MyProject folder on Desktop, click Open.
+8. After finding the MyProject folder on Desktop, click Open.
 
    ![Alt text](images/vs-openfolder2.png)
-8. In Explorer, click the New File... button to create a file called **`conditions.py`**.
+9. In Explorer, click the New File... button to create a file called **`conditions.py`**.
 
    ![Alt text](images/vs-newfile.png)
 
