@@ -19,6 +19,7 @@ Before obtaining data from the cloud database, the sensor must be turned on and 
 
 1. Power on the ROCK PI device and log in using the provided username and password.
 2. Connect to the WIFI network.
+   
    i.  Click the Networks icon on the taskbar, and then click the Connect button on BU-Standard.
 
    ![Alt text](images/wifi1.png)
@@ -30,24 +31,24 @@ Before obtaining data from the cloud database, the sensor must be turned on and 
    iii.  Click the Connect button on BU-Standard again and input your password to connect to the network.
 
    ![Alt text](images/wifi4.png)
-3. Right-click the desktop and select Create New, followed by Folder.
+4. Right-click the desktop and select Create New, followed by Folder.
 
    ![Alt text](images/createFolder1.png)
-4. Enter "MyProject" as the folder name, then click OK.
+5. Enter "MyProject" as the folder name, then click OK.
 
    ![Alt text](images/createFolder2.png)
    <div style="page-break-after: always;"></div>
-5. Launch Visual Studio Code by clicking the icon in the taskbar.
+6. Launch Visual Studio Code by clicking the icon in the taskbar.
 
    ![Alt text](images/vs-icon.png)
-6. Choose Open Folder from the File menu.
+7. Choose Open Folder from the File menu.
 
    ![Alt text](images/vs-openfolder.png)
-7. After finding the MyProject folder on the Desktop, click Open.
+8. After finding the MyProject folder on the Desktop, click Open.
 
    ![Alt text](images/vs-openfolder2.png)
    
-8. Get back the **`sensor.py`** you have completed in **workshop 2** and save it to the MyProject folder.
+9. Get back the **`sensor.py`** you have completed in **workshop 2** and save it to the MyProject folder.
   
     ```python
       from smbus2 import SMBus
@@ -95,7 +96,7 @@ Before obtaining data from the cloud database, the sensor must be turned on and 
          time.sleep(60) 
       ```
 
-9.  Run the **`sensor.py`** program.
+10.  Run the **`sensor.py`** program.
    
 ## Part 2: Retrieving data from MongoDB
 
