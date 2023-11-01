@@ -169,6 +169,7 @@ By finishing this session, you should be able to
          
             
    5. **Exercise: Calculate and print the humidity**
+
       The formula to calculate the humidity (in percentage) from the `humi` signal is as follows:
    
       $$Humidity = (\frac{humi}{2^{20}}) \times 100$$
