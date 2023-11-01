@@ -203,7 +203,10 @@ In this part, we will use the `pygame` library to create the GUI.
        window.fill((255, 255, 255))
    ```
    See [RGB Color Codes Chart](https://www.rapidtables.com/web/color/RGB_Color.html) for color code.
-6. To show text on the window, we first create a text surface and then draw it at a position. In pygame, positions are always supplied as an (X,Y) coordinate. This represents how many pixels to the right and how many pixels down the surface should be placed.
+
+   ![Alt text](images/rgb-color.png)
+   
+7. To show text on the window, we first create a text surface and then draw it at a position. In pygame, positions are always supplied as an (X,Y) coordinate. This represents how many pixels to the right and how many pixels down the surface should be placed.
 
    ![Alt tex](images/gui-coordinates.png)
 
