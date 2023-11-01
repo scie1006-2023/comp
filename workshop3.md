@@ -165,7 +165,7 @@ If Statement is applied during the decision-making process.  It has a body of co
    engine.say(u'Temperature is now {0:.1f}°'.format(temperature))
    engine.runAndWait()
    ```
-5. **Exercise: Output humidity value with speech
+5. **Exercise: Output humidity value with speech**
 
    Write code in the program to speak the humidity value out loud. It should say "Humidity is now XX%". You should put the code right **after the print statement of the humidity value**, which is `print(u'Humidity: {0:.1f}%'.format{humidity}) `.
 
