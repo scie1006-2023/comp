@@ -81,7 +81,7 @@ Before obtaining data from the cloud database, the sensor must be turned on and 
          print(u'Temperature: {0:.1f}°C'.format(temperature))
 
          humidity = humi / (2**20) * 100
-         print(u'Humidity: {0:.1f}%'.format{humidity})         
+         print(u'Humidity: {0:.1f}%'.format(humidity))         
          
          record = {
             "sensor_id": 1,
