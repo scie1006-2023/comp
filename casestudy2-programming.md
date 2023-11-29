@@ -235,7 +235,7 @@ In this part, we will use the `pygame` library to create the GUI.
        # Fill out the ... below
    
        # create a text surface with black color, RGB code (0, 0, 0)
-       humiText = font.render(...), True, (0, 0, 0)) 
+       humiText = font.render(..., True, (0, 0, 0)) 
 
        # draw the humiText surface at the position (10, 40)
        window.blit(...)
